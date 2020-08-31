@@ -18,7 +18,7 @@ function wt2020_sidebar_child_menu() {
 	$current_page = get_the_ID();
 	$children = get_pages(array('child_of' => $section_head, 'sort_column' => 'menu_order', 'exclude' => array($current_page) ) );
 
-	if ( $children ) { ?>
+	if ( $children && $section_head ) { ?>
 		<div class="child-menu">
 
 			<?php

@@ -5,17 +5,17 @@ input,
 select,
 textarea {
 	background-color: $white;
-	border: 1px solid $light-grey;
+	border: 1px solid $yellow;
 	color: $black;
 	font-size: $base-font-size;
 	font-weight: 400;
-	padding: 15px;
+	padding: 8px 15px;
 	width: 100%;
 }
 
 input:focus,
 textarea:focus {
-	border: 1px solid $light-grey;
+	background-color: $yellow;
 	outline: none;
 }
 
@@ -103,6 +103,48 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button {
 	display: none;
 }
+
+
+/* Ninja Forms adjustments
+--------------------------------------------- */
+
+.site-container {
+
+	.wp-block-ninja-forms-form {
+		max-width: 670px;
+		margin: 0 auto;
+	}
+
+	.nf-form-fields-required {
+		display: none;
+	}
+
+	#ninja_forms_required_items, .nf-field-container {
+	    margin-bottom: 10px;
+	}
+
+	.nf-form-cont .one-half, .nf-form-cont .three-sixths, .nf-form-cont .two-fourths {
+	    width: 49.5%;
+	}
+
+	.nf-form-cont .five-sixths, .nf-form-cont .four-sixths, .nf-form-cont .one-fourth, .nf-form-cont .one-half, .nf-form-cont .one-sixth, .nf-form-cont .one-third, .nf-form-cont .three-fourths, .nf-form-cont .three-sixths, .nf-form-cont .two-fourths, .nf-form-cont .two-sixths, .nf-form-cont .two-thirds {
+	    margin-left: 1%;
+	}
+
+	.nf-form-cont .first {
+	    margin-left: 0;
+	}
+
+	.nf-field-label label {
+	    font-weight: 500;
+	}
+
+	.field-wrap input[type=button] {
+	    width: 100%;
+	}
+}
+
+
 
 
 
