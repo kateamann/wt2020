@@ -31,8 +31,7 @@ add_theme_support( 'genesis-structural-wraps', array(
 
 add_theme_support( 'genesis-menus', array( 
 	'primary' => 'Primary Navigation Menu', 
-	'secondary' => 'Secondary Navigation Menu', 
-	'mobile' => 'Mobile Menu' 
+	'secondary' => 'Footer Menu', 
 ) );
 
 // Adds support for accessibility.
@@ -47,7 +46,7 @@ add_theme_support( 'genesis-accessibility', array(
 ) );
 
 // Remove Genesis Layout Settings
-remove_theme_support( 'genesis-inpost-layouts' );
+// remove_theme_support( 'genesis-inpost-layouts' );
 
 // Remove Genesis Scripts Settings
 add_action( 'admin_menu' , 'remove_genesis_page_post_scripts_box' );
@@ -62,13 +61,6 @@ function remove_genesis_page_post_scripts_box() {
 remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
 
 
-// add_action( 'init', 'custom_post_type_support', 11 );
-// function custom_post_type_support() {
-// 	remove_post_type_support( 'page', array( 'genesis-seo', 'genesis-scripts', 'genesis-layouts' ) );
-// 	// remove_post_type_support( 'post-type', 'genesis-seo' );
-// 	// remove_post_type_support( 'post-type', 'genesis-scripts' );
-// 	// remove_post_type_support( 'post-type', 'genesis-layouts' );
-// }
 
 // Remove admin bar styling
 // add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
@@ -95,8 +87,6 @@ unregister_sidebar( 'sidebar-alt' );
 // Adds support for after entry widget.
 // add_theme_support( 'genesis-after-entry-widget-area' );
 
-// add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
-
 
 
 // Add New Sidebars
@@ -112,3 +102,106 @@ function wt2020_remove_genesis_templates( $page_templates ) {
 	return $page_templates;
 }
 add_filter( 'theme_page_templates', 'wt2020_remove_genesis_templates' );
+
+
+
+
+/**
+ * Display featured image (if present) before entry on single Posts
+ */
+function wt2020_hero_image() {
+	if ( is_singular() && ! is_front_page() ) {
+		// if we do not have a featured image, abort.
+	    if ( ! has_post_thumbnail() ) {
+	        return;
+	    }
+
+	    // Remove post title from main content
+	    remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+
+	    // get the URL of featured image.
+	    $image = genesis_get_image( 'format=url&size=wt2020_hero' );
+
+	    // get the alt text of featured image.
+	    $thumb_id = get_post_thumbnail_id( get_the_ID() );
+	    $alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+
+	    // if no alt text is present for featured image, set it to Post title.
+	    if ( '' === $alt ) {
+	        $alt = the_title_attribute( 'echo=0' );
+	    }
+
+	   
+	    // display the featured image
+	    echo '<div class="hero">';
+	    printf( '<figure class="single-post-image"><img src="%s" alt="%s" /></figure>', esc_url( $image ), $alt );
+
+	    echo '<div class="hero-overlay">';
+	    echo '<div class="wrap">';
+	    genesis_do_post_title();
+
+	    if ( ! has_excerpt() ) {
+		    echo '';
+		} else { 
+		    the_excerpt();
+		}
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+	}
+}
+add_action( 'genesis_after_header', 'wt2020_hero_image' );
+
+
+// Remove post info
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+
+
+/**
+ * Archive Post Class
+ *
+ * Breaks the posts into two columns
+ * @link http://www.billerickson.net/code/grid-loop-using-post-class
+ *
+ * @param array $classes
+ * @return array
+ */
+function wt2020_archive_post_class( $classes ) {
+
+	// Don't run on single posts or pages
+	if( is_singular() )
+		return $classes;
+
+	$classes[] = 'one-half';
+	global $wp_query;
+	if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 2 )
+		$classes[] = 'first';
+	return $classes;
+}
+add_filter( 'post_class', 'wt2020_archive_post_class' );
+
+
+// Archive layouts
+function wt2020_post_layout() {
+	if ( !is_front_page() && !is_singular() ) {
+		remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+		add_action( 'genesis_entry_header', 'genesis_do_post_image', 5 );
+		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+	}
+}
+add_action( 'genesis_header', 'wt2020_post_layout' );
+
+
+
+/**
+ * Add Read More button below post excerpts/content on archives.
+ */
+function wt2020_custom_add_read_more() {
+    // if this is a singular page, abort.
+    if ( is_singular() ) {
+        return;
+    }
+
+    printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );
+}
+add_action( 'genesis_entry_content', 'wt2020_custom_add_read_more' );

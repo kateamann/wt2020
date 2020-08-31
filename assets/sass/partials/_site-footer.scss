@@ -2,17 +2,23 @@
 ---------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background-color: $white;
+	background-color: $black;
+	color: $white;
 	clear: both;
 	padding: 30px 0;
 
 	.wrap {
-		margin-left: auto;
-		margin-right: auto;
+		margin: 0 30px;
 
 		@media only screen and (min-width: $small-screen) {
-			max-width: 1200px;
+			max-width: 1024px;
+			margin-left: auto;
+			margin-right: auto;
 		}
+	}
+
+	p {
+		margin-bottom: 0;
 	}
 }
 
@@ -20,13 +26,11 @@
 
 .footer-widget-area {
 	margin-bottom: 20px;
-	padding-left: 30px;
-	padding-right: 30px;
 
 	@media only screen and (min-width: $small-screen) {
 		float: left;
 		margin-bottom: 0;
-		width: calc(100% / 3);
+		width: calc(100% / 4);
 	}
 }
 
@@ -40,13 +44,25 @@
 ---------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: $white;
-	font-size: 15px;
-	line-height: 1.5;
-	padding: 30px;
+	background-color: $black;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 120px 30px 30px;
 	text-align: center;
+	color: $white;
 
 	p {
-		margin-bottom: 0;
+		margin-bottom: 10px;
+	}
+
+	a {
+		color: $white;
+	}
+
+	@media only screen and (min-width: $small-screen) {
+		p {
+			margin-bottom: 0;
+			display: inline-block;
+		}
 	}
 }

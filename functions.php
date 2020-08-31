@@ -41,7 +41,8 @@ function wt2020_child_theme_setup() {
 	add_editor_style( 'assets/css/editor-style.css' );
 
 	// Image Sizes
-	// add_image_size( 'wt2020_featured', 400, 100, true );
+	add_image_size( 'wt2020_hero', 1280, 400, true );
+	add_image_size( 'wt2020_featured', 500, 300, true );
 
 	// Gutenberg
 
@@ -102,6 +103,11 @@ function wt2020_child_theme_setup() {
 			'slug'  => 'white',
 			'color' => '#ffffff',
 		),
+		array(
+			'name'  => __( 'Black Overlay', CHILD_TEXT_DOMAIN ),
+			'slug'  => 'black-overlay',
+			'color' => 'rgba(0,0,0,0.85)',
+		),
 	) );
 
 }
@@ -123,64 +129,33 @@ function replace_default_style_sheet() {
 function wt2020_global_enqueues() {
 
 	// css
-	wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fonts', wt2020_theme_fonts_url() );
-    //wp_enqueue_style( CHILD_TEXT_DOMAIN . '-style', get_stylesheet_directory_uri() . '/style.css', array(), CHILD_THEME_VERSION );
     wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fontawesome', '//use.fontawesome.com/releases/v5.7.2/css/all.css', array(), CHILD_THEME_VERSION );
     wp_enqueue_style( 'dashicons' );
 
-	// Move jQuery to footer
-	// if( ! is_admin() ) {
-	// 	wp_deregister_script( 'jquery' );
-	// 	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-	// 	wp_enqueue_script( 'jquery' );
-	// }
 	
 	// javascript
-	// $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	// wp_enqueue_script(
-	// 	CHILD_TEXT_DOMAIN . '-responsive-menu',
-	// 	get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js",
-	// 	array( 'jquery' ),
-	// 	CHILD_THEME_VERSION,
-	// 	true
-	// );
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	wp_enqueue_script(
+		CHILD_TEXT_DOMAIN . '-responsive-menu',
+		get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js",
+		array( 'jquery' ),
+		CHILD_THEME_VERSION,
+		true
+	);
 
-	// wp_localize_script(
-	// 	CHILD_TEXT_DOMAIN . '-responsive-menu',
-	// 	'genesis_responsive_menu',
-	// 	responsive_menu_settings()
-	// );
+	wp_localize_script(
+		CHILD_TEXT_DOMAIN . '-responsive-menu',
+		'genesis_responsive_menu',
+		responsive_menu_settings()
+	);
 
 }
 add_action( 'wp_enqueue_scripts', 'wt2020_global_enqueues' );
 
 
 
-/**
- * Gutenberg scripts and styles
- *
- */
-function wt2020_gutenberg_scripts() {
-	wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fonts', wt2020_theme_fonts_url() );
-}
-add_action( 'enqueue_block_editor_assets', 'wt2020_gutenberg_scripts' );
-
-
-/**
- * Theme Fonts URL
- *
- */
-function wt2020_theme_fonts_url() {
-	$font_families = apply_filters( 'wt2020_theme_fonts', array( 'Libre+Franklin:400,400i,700,700i' ) );
-	$query_args = array(
-		'family' => implode( '|', $font_families ),
-		'subset' => 'latin,latin-ext',
-	);
-	$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	return esc_url_raw( $fonts_url );
-}
-
-
+// Enable exceprts on pages
+add_post_type_support( 'page', 'excerpt' );
 
 
 /**

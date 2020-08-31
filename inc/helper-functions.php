@@ -19,10 +19,93 @@ if (function_exists('acf_add_options_page')) {
         'page_title' => 'WT Options',
         'menu_title' => 'WT Options',
         'menu_slug'  => 'wt-options',
+        'position' 	 => '3.1',
         'capability' => 'edit_posts',
         'redirect'   => false
     ));
+
+    acf_add_options_page(array(
+		'page_title' => 'Certifications',
+		'menu_title' => 'Certifications',
+		'menu_slug'  => 'certifications',
+		'position'   => '6.1',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+	));
 }
+
+
+/**
+ * Adds full-width callback CTA
+ */
+function wt2020_add_callback_cta() { 
+	if( get_field('callback_toggle') ) { ?>
+	    <div class="cta-callback clearfix">
+			<div class="wrap">
+			<h3>Request a Call Back</h3>
+			<?php echo do_shortcode('[ninja_form id=3]'); ?>
+			</div>
+		</div> 
+		<?php
+	}
+}
+
+/**
+ * Adds featured case studies
+ */
+function wt2020_add_featured_case_studies() {
+	$case_studies = get_field('case_studies');
+	if( $case_studies ){ ?>
+		<div class="pre-footer-section clearfix">
+			<h6>Case Studies</h6>
+			<div class="featured-menu clearfix">
+			    <?php foreach( $case_studies as $case_study ): 
+
+			    	$permalink = get_permalink( $case_study->ID );
+			        $title = get_the_title( $case_study->ID );
+			        ?>
+
+			        <div class="featured-item">
+			            <a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
+			            <?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+			        </div>
+			    <?php endforeach; ?>
+			</div>
+		</div>
+	<?php }
+}
+
+/**
+ * Adds Certifications block
+ */
+function wt2020_add_certifications_block() { 
+	if( get_field('certifications_toggle') ) { 
+		if( have_rows('certifications', 'options') ){ ?>
+			<div class="pre-footer-section clearfix">
+				<h6>Certifications</h6>
+				<div class="certifications clearfix">
+
+
+				</div>
+			</div>
+		<?php
+		}
+	}
+}
+
+
+/**
+ * Adds sidebar CTA
+ */
+function wt2020_add_sidebar_cta() { ?>
+	<div class="cta-sidebar clearfix">
+		<h3>Request a Call Back</h3>
+		<?php echo do_shortcode('[ninja_form id=3]'); ?>
+		<p>Other ways to get in touch</p>
+	</div>
+	<?php
+}
+
 
 /**
  * Move Yoast to the Bottom
