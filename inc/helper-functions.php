@@ -85,6 +85,31 @@ function wt2020_add_featured_case_studies() {
 
 
 /**
+ * Certifications shortcode
+ */
+function wt2020_certifications_shortcode() {
+	ob_start(); 
+	if( have_rows('certifications', 'options') ) {?>
+	<div class="certifications clearfix">
+		<?php while( have_rows('certifications', 'options') ): the_row(); 
+	        $logo = get_sub_field('logo');
+	        $link = get_sub_field('link');
+	        $name = get_sub_field('name');
+	        ?>
+	        <div class="certification">
+	            <?php echo wp_get_attachment_image( $logo, 'full' ); ?>
+	            <a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $name ); ?></a>
+	        </div>
+	    <?php endwhile; ?>
+	</div>
+	<?php $certifications = ob_get_clean();
+    return $certifications;
+    } 
+}
+add_shortcode( 'certifications', 'wt2020_certifications_shortcode' );
+
+
+/**
  * Adds Certifications block
  */
 function wt2020_add_certifications_block() { 
@@ -92,10 +117,9 @@ function wt2020_add_certifications_block() {
 		if( have_rows('certifications', 'options') ){ ?>
 			<div class="pre-footer-section clearfix">
 				<h6>Certifications</h6>
-				<div class="certifications clearfix">
 
+				<?php echo do_shortcode( '[certifications]' ); ?>
 
-				</div>
 			</div>
 		<?php
 		}
@@ -103,14 +127,22 @@ function wt2020_add_certifications_block() {
 }
 
 
+
 /**
  * Adds sidebar CTA
  */
-function wt2020_add_sidebar_cta() { ?>
+function wt2020_add_sidebar_cta() { 
+	$cta_2_link = get_field('cta_second_button_link', 'options');
+	$cta_2_text = get_field('cta_second_button_text', 'options'); ?>
+
 	<div class="cta-sidebar clearfix">
 		<h3>Request a Call Back</h3>
 		<?php echo do_shortcode('[ninja_form id=3]'); ?>
 		<p>Other ways to get in touch</p>
+		<a class="InfinityNumber call-us visible-xs button" href="tel:+443458537010" data-ict-discovery-number="+443458537010" data-ict-silent-replacements="true"><span class="InfinityNumber">0345 853 7010</span></a>
+		<?php if ( $cta_2_link ) { ?>
+			<a class="button" href="<?php echo esc_url( $cta_2_link ); ?>"><?php echo esc_html( $cta_2_text ); ?></a>
+		<?php } ?>
 	</div>
 	<?php
 }
@@ -118,7 +150,6 @@ function wt2020_add_sidebar_cta() { ?>
 /**
  * Child menu shortcode
  */
-
 function wt2020_child_menu_shortcode() {
 	global $post;
 
@@ -151,6 +182,37 @@ function wt2020_child_menu_shortcode() {
     } 
 }
 add_shortcode( 'child_menu', 'wt2020_child_menu_shortcode' );
+
+
+
+/**
+ * Footer CTA buttons
+ */
+function wt2020_footer_buttons() { 
+
+	$cta_1_link = get_field('cta_first_button_link', 'options');
+	$cta_1_text = get_field('cta_first_button_text', 'options');
+	$cta_2_link = get_field('cta_second_button_link', 'options');
+	$cta_2_text = get_field('cta_second_button_text', 'options');
+	?>
+	<div class="footer-ctas">
+		<div class="wrap">
+			<h6>Get In Touch</h6>
+			<div class="footer-cta-area">
+				<?php if ( $cta_1_link ) { ?>
+					<a class="button solid" href="<?php echo esc_url( $cta_1_link ); ?>"><?php echo esc_html( $cta_1_text ); ?></a>
+				<?php } ?>
+				<a class="InfinityNumber call-us visible-xs button solid" href="tel:+443458537010" data-ict-discovery-number="+443458537010" data-ict-silent-replacements="true"><span class="InfinityNumber">0345 853 7010</span></a>
+				<?php if ( $cta_2_link ) { ?>
+					<a class="button solid" href="<?php echo esc_url( $cta_2_link ); ?>"><?php echo esc_html( $cta_2_text ); ?></a>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+
+<?php
+}
+add_action( 'genesis_before_footer', 'wt2020_footer_buttons', 9 );
 
 
 

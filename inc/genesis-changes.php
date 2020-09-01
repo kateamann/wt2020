@@ -81,16 +81,19 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 
 // Remove sidebar layouts
 unregister_sidebar( 'header-right' );
-// unregister_sidebar( 'sidebar' );
+unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
-
-// Adds support for after entry widget.
-// add_theme_support( 'genesis-after-entry-widget-area' );
-
 
 
 // Add New Sidebars
-// genesis_register_widget_area( array( 'id' => 'blog-sidebar', 'name' => 'Blog Sidebar' ) );
+genesis_register_widget_area( array( 'id' => 'sidebar-end', 'name' => 'After Sidebar Area' ) );
+
+remove_action( 'genesis_sidebar', 'genesis_do_sidebar' ); 
+add_action( 'genesis_sidebar', 'wt2020_do_sidebar' );
+
+function wt2020_do_sidebar() {
+	dynamic_sidebar( 'sidebar-end' );
+}
 
 /**
  * Remove Genesis Templates

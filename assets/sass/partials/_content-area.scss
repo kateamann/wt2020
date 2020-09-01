@@ -34,6 +34,32 @@
 }
 
 
+.entry-content .certifications {
+	.certification {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 30px;
+
+		img {
+			margin-right: 30px;
+		}
+
+		a {
+			font-weight: 400;
+		}
+	}
+
+	@media only screen and (min-width: $small-screen) {
+		.certification {
+			img {
+				margin-right: 60px;
+			}
+		}
+	}
+}
+
+
 /* Entry Content
 --------------------------------------------- */
 

@@ -62,7 +62,5 @@ function responsive_menu_settings() {
 			'others'  => array(),
 		),
 	);
-
 	return $settings;
-
 }

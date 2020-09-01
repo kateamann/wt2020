@@ -48,6 +48,8 @@ add_action( 'genesis_before_footer', 'wt2020_add_callback_cta', 2 );
 
 add_action( 'genesis_before_footer', 'wt2020_add_featured_case_studies', 2 );
 
+add_action( 'genesis_before_footer', 'wt2020_add_certifications_block', 2 );
+
 
 
 genesis();

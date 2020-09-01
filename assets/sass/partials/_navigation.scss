@@ -545,19 +545,39 @@
 	h6 {
 		text-align: center;
 	}
+
+	.certifications {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+	}
+
+	.certification {
+		width: 50%;
+		padding: 20px;
+
+		img {
+			display: block;
+			margin: 0 auto 15px;
+		}
+
+		a {
+			font-weight: 400;
+		}
+	}
+
+	@media only screen and (min-width: $small-screen) {
+		.certification {
+			width: 25%;
+			padding: 40px;
+		}
+	}
 }
 
 
 
-
-/* Image Menu
---------------------------------------------- */
-.featured-menu {
-}
-
-.featured-item {
-	width: 50%;
-}
 
 
 /* CTAs
@@ -582,10 +602,25 @@
 .cta-sidebar {
 	text-align: center;
 	padding: 30px;
+	margin-bottom: 30px;
 	color: $white;
 	background-color: $black;
 
 	h3 {
 		text-transform: uppercase;
+	}
+
+	form {
+		margin-bottom: 60px;
+	}
+
+	.nf-field-label label {
+	    font-size: 12px;
+	    margin-bottom: 30px;
+	}
+
+	.button {
+		width: 100%;
+		margin-top: 10px;
 	}
 }
