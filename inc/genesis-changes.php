@@ -157,30 +157,6 @@ add_action( 'genesis_after_header', 'wt2020_hero_image' );
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
 
-/**
- * Archive Post Class
- *
- * Breaks the posts into two columns
- * @link http://www.billerickson.net/code/grid-loop-using-post-class
- *
- * @param array $classes
- * @return array
- */
-function wt2020_archive_post_class( $classes ) {
-
-	// Don't run on single posts or pages
-	if( is_singular() )
-		return $classes;
-
-	$classes[] = 'one-half';
-	global $wp_query;
-	if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 2 )
-		$classes[] = 'first';
-	return $classes;
-}
-add_filter( 'post_class', 'wt2020_archive_post_class' );
-
-
 // Archive layouts
 function wt2020_post_layout() {
 	if ( !is_front_page() && !is_singular() ) {

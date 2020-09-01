@@ -1,11 +1,44 @@
 /* Content Area
 ---------------------------------------------------------------------------- */
+.archive .content,
+.featured-menu {
+
+	.entry {
+		width: 100%;
+
+		.entry-content {
+			padding-right: 30px;
+		}
+	}
+
+	img {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+	@media only screen and (min-width: $small-screen) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.entry {
+			width: 49.5%;
+		}		
+	}
+}
+
+.pre-footer-section .featured-menu {
+    clear: both;
+    margin: 0 auto;
+    padding: 30px 30px 0;
+}
+
 
 /* Entry Content
 --------------------------------------------- */
 
 .entry {
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 
 .entry-content {

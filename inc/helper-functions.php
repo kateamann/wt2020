@@ -63,17 +63,26 @@ function wt2020_add_featured_case_studies() {
 
 			    	$permalink = get_permalink( $case_study->ID );
 			        $title = get_the_title( $case_study->ID );
+			        $excerpt = get_the_excerpt( $case_study->ID );
 			        ?>
 
-			        <div class="featured-item">
-			            <a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
-			            <?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+			        <div class="featured-item entry">
+			        	<header class="entry-header">
+			            	<a href="<?php echo esc_url( $permalink ); ?>">
+			            	<?php echo get_the_post_thumbnail( $case_study->ID, 'medium_large' ); ?></a>
+			            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
+			            </header>
+			            	<div class="entry-content" itemprop="text">
+				            	<p><?php echo esc_html( $excerpt ); ?></p>
+				            	<?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+			        		</div>
 			        </div>
 			    <?php endforeach; ?>
 			</div>
 		</div>
 	<?php }
 }
+
 
 /**
  * Adds Certifications block
@@ -105,6 +114,44 @@ function wt2020_add_sidebar_cta() { ?>
 	</div>
 	<?php
 }
+
+/**
+ * Child menu shortcode
+ */
+
+function wt2020_child_menu_shortcode() {
+	global $post;
+
+	ob_start();
+	$children = get_pages(array('child_of' => $post->ID, 'sort_column' => 'menu_order'));
+	if ( $children ) { ?>
+		<div class="featured-menu clearfix">
+		    <?php foreach( $children as $child ): 
+
+	    	$permalink = get_permalink( $child->ID );
+	        $title = get_the_title( $child->ID );
+	        $excerpt = get_the_excerpt( $child->ID );
+	        ?>
+
+	        <div class="featured-item entry">
+	        	<header class="entry-header">
+	            	<a href="<?php echo esc_url( $permalink ); ?>">
+	            	<?php echo get_the_post_thumbnail( $child->ID, 'medium_large' ); ?></a>
+	            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
+	            </header>
+	            	<div class="entry-content" itemprop="text">
+		            	<p><?php echo esc_html( $excerpt ); ?></p>
+		            	<?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+	        		</div>
+	        </div>
+		    <?php endforeach; ?>
+		</div>
+	<?php $child_menu = ob_get_clean();
+    return $child_menu;
+    } 
+}
+add_shortcode( 'child_menu', 'wt2020_child_menu_shortcode' );
+
 
 
 /**

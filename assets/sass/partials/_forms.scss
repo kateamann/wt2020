@@ -45,8 +45,8 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	background-color: $yellow;
-	border: 0;
+	background-color: $white;
+	border: 1px solid $yellow;
 	border-radius: 0;
 	color: $black;
 	cursor: pointer;
@@ -71,7 +71,31 @@ input[type="submit"]:focus,
 input[type="submit"]:hover,
 .button:focus,
 .button:hover {
+	background-color: $yellow;
+	color: $black;
+}
+
+button.solid,
+input[type="button"].solid,
+input[type="reset"].solid,
+input[type="submit"].solid,
+.button.solid {
+	background-color: $yellow;
+	color: $black;
+}
+
+button:focus.solid,
+button:hover.solid,
+input[type="button"]:focus.solid,
+input[type="button"]:hover.solid,
+input[type="reset"]:focus.solid,
+input[type="reset"]:hover.solid,
+input[type="submit"]:focus.solid,
+input[type="submit"]:hover.solid,
+.button:focus.solid,
+.button:hover.solid {
 	background-color: $white;
+	color: $black;
 }
 
 .entry-content .button:focus,
@@ -103,6 +127,7 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button {
 	display: none;
 }
+
 
 
 /* Ninja Forms adjustments
@@ -137,10 +162,22 @@ input[type="search"]::-webkit-search-results-button {
 
 	.nf-field-label label {
 	    font-weight: 500;
+	    text-align: left;
 	}
 
 	.field-wrap input[type=button] {
 	    width: 100%;
+	}
+
+	input[type=button] {
+		background-color: $yellow;
+		color: $black;
+	}
+
+	input[type=button]:focus,
+	input[type=button]:hover {
+		background-color: $white;
+		color: $black;
 	}
 }
 

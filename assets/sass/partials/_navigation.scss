@@ -33,7 +33,6 @@
 .more-link {
 	display: inline-block;
 	position: relative;
-	margin-bottom: 20px;
 }
 
 
@@ -525,6 +524,7 @@
 
 	button {
 		margin-top: auto;
+		width: fit-content;
 	}
 
 	@media only screen and (min-width: $small-screen) {

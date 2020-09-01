@@ -25,7 +25,7 @@ function wt2020_home_hero() {
 	        <div class="home-hero-overlay">
 	        	<div class="wrap">
 	        		<h2 class="entry-title" itemprop="headline"><?php echo $header['text']; ?></h2>
-		            <a class="button" href="<?php echo esc_url( $header['button_link'] ); ?>"><?php echo esc_html( $header['button_text'] ); ?></a>
+		            <a class="button solid" href="<?php echo esc_url( $header['button_link'] ); ?>"><?php echo esc_html( $header['button_text'] ); ?></a>
 	        	</div>
 	        </div>
 	    </div>

@@ -129,7 +129,6 @@ function replace_default_style_sheet() {
 function wt2020_global_enqueues() {
 
 	// css
-    wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fontawesome', '//use.fontawesome.com/releases/v5.7.2/css/all.css', array(), CHILD_THEME_VERSION );
     wp_enqueue_style( 'dashicons' );
 
 	

@@ -315,7 +315,7 @@ th:first-child {
 .after-entry,
 .archive-description,
 .author-box {
-	margin-bottom: 20px;
+	margin-bottom: 0;
 }
 
 .after-entry .widget:last-of-type {
@@ -341,9 +341,7 @@ th:first-child {
 .archive-description .entry-title,
 .archive-title,
 .author-box-title {
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .entry-title {
