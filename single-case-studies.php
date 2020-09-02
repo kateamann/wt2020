@@ -28,7 +28,7 @@ function wt2020_sidebar_case_study_menu() {
 						<?php echo get_the_post_thumbnail($post['ID'], 'medium'); ?>
 						<div class="title-block">
 							<h3><?php echo $post['post_title'] ?></h3>
-							<button>Read More</button>
+							<button class="arrow-right">Read More</button>
 						</div>
 					</a>
 				</div>

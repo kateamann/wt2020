@@ -24,8 +24,8 @@ function wt2020_home_hero() {
 	        <?php echo wp_get_attachment_image( $header['image'], 'full' ); ?>
 	        <div class="home-hero-overlay">
 	        	<div class="wrap">
-	        		<h2 class="entry-title" itemprop="headline"><?php echo $header['text']; ?></h2>
-		            <a class="button solid" href="<?php echo esc_url( $header['button_link'] ); ?>"><?php echo esc_html( $header['button_text'] ); ?></a>
+	        		<h2 class="black entry-title" itemprop="headline"><?php echo $header['text']; ?></h2>
+		            <a class="button arrow-right solid" href="<?php echo esc_url( $header['button_link'] ); ?>"><?php echo esc_html( $header['button_text'] ); ?></a>
 	        	</div>
 	        </div>
 	    </div>
@@ -51,7 +51,7 @@ function wt2020_home_featured_links() {
 	            <div class="feature-overlay">
 	            	<h6><?php the_sub_field('link_title'); ?></h6>
 	            	<p><?php the_sub_field('link_text'); ?></p>
-	            	<button>Read More</button>
+	            	<button class="arrow-right">Read More</button>
 	        	</div>
 		    	
 		    </div>

@@ -369,19 +369,26 @@ hr.wp-block-separator.is-style-dots {
 	width: auto;
 }
 
+.content .wp-block-button .wp-block-button__link:focus,
+.content .wp-block-button .wp-block-button__link:hover {
+	background-color: #ffffff;
+	color: #000000;
+}
+
 .wp-block-button.is-style-squared .wp-block-button__link {
 	border-radius: 0;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link {
-	background-color: transparent;
-	border: 2px solid currentColor;
+	background-color: #ffffff;
+	border: 2px solid #ffd100;
 	border-radius: 0;
-	padding: 13px 28px;
+	padding: 9px 13px 7px;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link:focus,
 .wp-block-button.is-style-outline .wp-block-button__link:hover {
+	background-color: #ffd100;
 	color: #000000;
 }
 

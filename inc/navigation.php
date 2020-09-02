@@ -54,7 +54,7 @@ function responsive_menu_settings() {
 		'mainMenu'         => __( '<span class="hamburger-box"><span class="hamburger-inner"></span></span>' ),
 		'menuIconClass'    => 'hamburger hamburger--elastic',
 		'subMenu'          => __( 'Submenu', CHILD_TEXT_DOMAIN ),
-		'subMenuIconClass' => 'dashicons-before dashicons-arrow-down-alt2',
+		'subMenuIconClass' => 'icon icon-arrow-down',
 		'menuClasses'      => array(
 			'combine' => array(
 				'.nav-primary',

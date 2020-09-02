@@ -181,6 +181,6 @@ function wt2020_custom_add_read_more() {
         return;
     }
 
-    printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );
+    printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );
 }
 add_action( 'genesis_entry_content', 'wt2020_custom_add_read_more' );

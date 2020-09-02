@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="walker-timber" horiz-adv-x="1266.6666666666667">
+    <font-face font-family="walker-timber"
+      units-per-em="1000" ascent="1000"
+      descent="0" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="arrow-down"
+      unicode="&#xEA01;"
+      horiz-adv-x="842.1052631578947" d="M815.7894736842105 986.8421052631578L815.7894736842105 513.1578947368421L421.0526315789475 13.1578947368421L26.3157894736842 513.1578947368419L26.3157894736842 986.8421052631576L421.0526315789474 513.1578947368421z" />
+    <glyph glyph-name="arrow-right"
+      unicode="&#xEA02;"
+      horiz-adv-x="1266.6666666666667" d="M16.6666666666666 1000.0000000000002L616.6666666666666 1000.0000000000002L1250 500.0000000000001L616.6666666666666 0L16.6666666666666 0L616.6666666666666 500.0000000000001z" />
+  </font>
+</defs>
+</svg>

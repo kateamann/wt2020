@@ -98,6 +98,25 @@ input[type="submit"]:hover.solid,
 	color: $black;
 }
 
+button.arrow-right::after,
+input[type="button"].arrow-right::after,
+input[type="reset"].arrow-right::after,
+input[type="submit"].arrow-right::after,
+.button.arrow-right::after,
+.arrow-right .wp-block-button__link::after {
+	padding-left: 30px;
+	font-size: 8px;
+	display: inline-block;
+	font-family: "walker-timber";
+	content: "\ea02";
+	line-height: 1;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
 .entry-content .button:focus,
 .entry-content .button:hover {
 	color: $black;

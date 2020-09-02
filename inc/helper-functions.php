@@ -42,7 +42,7 @@ function wt2020_add_callback_cta() {
 	if( get_field('callback_toggle') ) { ?>
 	    <div class="cta-callback clearfix">
 			<div class="wrap">
-			<h3>Request a Call Back</h3>
+			<h3 class="black">Request a Call Back</h3>
 			<?php echo do_shortcode('[ninja_form id=3]'); ?>
 			</div>
 		</div> 
@@ -74,7 +74,7 @@ function wt2020_add_featured_case_studies() {
 			            </header>
 			            	<div class="entry-content" itemprop="text">
 				            	<p><?php echo esc_html( $excerpt ); ?></p>
-				            	<?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+				            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
 			        		</div>
 			        </div>
 			    <?php endforeach; ?>
@@ -136,7 +136,7 @@ function wt2020_add_sidebar_cta() {
 	$cta_2_text = get_field('cta_second_button_text', 'options'); ?>
 
 	<div class="cta-sidebar clearfix">
-		<h3>Request a Call Back</h3>
+		<h3 class="black">Request a Call Back</h3>
 		<?php echo do_shortcode('[ninja_form id=3]'); ?>
 		<p>Other ways to get in touch</p>
 		<a class="InfinityNumber call-us visible-xs button" href="tel:+443458537010" data-ict-discovery-number="+443458537010" data-ict-silent-replacements="true"><span class="InfinityNumber">0345 853 7010</span></a>
@@ -172,7 +172,7 @@ function wt2020_child_menu_shortcode() {
 	            </header>
 	            	<div class="entry-content" itemprop="text">
 		            	<p><?php echo esc_html( $excerpt ); ?></p>
-		            	<?php printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+		            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
 	        		</div>
 	        </div>
 		    <?php endforeach; ?>

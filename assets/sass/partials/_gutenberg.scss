@@ -113,6 +113,12 @@
 	margin-left: 2em;
 }
 
+.wp-block-button, 
+.wp-block-buttons,
+.entry-content .wp-block-buttons .wp-block-button {
+    margin-bottom: 0;
+}
+
 .wp-block-image.alignwide,
 .wp-block-image.alignfull,
 .wp-block-embed.alignwide,
@@ -167,7 +173,7 @@
 
 .full-width-content .entry-content .wp-block-cover-image .wp-block-cover__inner-container, 
 .full-width-content .entry-content .wp-block-cover .wp-block-cover__inner-container {
-    width: calc(100% - 60px);
+    width: 100%;
 
     .wp-block-group {
     	margin: 0 auto;
@@ -176,6 +182,13 @@
     }
 }
 
+.wp-block-cover.cover-overlay {
+    padding: 60px;
+
+    .overlay-group {
+    	padding: 60px;
+    }
+}
 
 
 
@@ -211,10 +224,16 @@
 }
 
 .content .wp-block-button.is-style-outline .wp-block-button__link {
-	background-color: transparent;
+	background-color: $white;
 	border: 1px solid $yellow;
 	border-radius: 0;
-	padding: 10px 15px;
+	padding: 9px 13px 7px;
+}
+
+.content .wp-block-button.is-style-outline .wp-block-button__link:focus,
+.content .wp-block-button.is-style-outline .wp-block-button__link:hover {
+	background-color: $yellow;
+	color: $black;
 }
 
 /* Blockquotes and captions
