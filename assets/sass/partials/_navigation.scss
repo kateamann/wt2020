@@ -289,7 +289,7 @@
 /* Hamburgers
 --------------------------------------------- */
 .hamburger {
-	height: 52px;
+	height: 56px;
 	display: inline-block;
 	cursor: pointer;
 	transition-property: opacity, filter;
@@ -300,7 +300,7 @@
 	text-transform: none;
 	background-color: transparent;
 	border: 0;
-	margin: 0;
+	margin: 0 10px;
 	overflow: visible; 
 
 	@media only screen and (min-width: $small-screen) {
@@ -393,8 +393,8 @@
 
 .nav-primary {
 	clear: left;
-	padding-bottom: 8px;
-	padding-top: 8px;
+	padding-bottom: 0;
+	padding-top: 0;
 	width: 100%;
 
 	@media only screen and (min-width: $small-screen) {
@@ -406,6 +406,16 @@
 			padding-left: 10px;
 			padding-right: 10px;
 		}
+	}
+}
+
+.site-header .menu-cta {
+	float: left;
+	margin: 10px 0;
+
+	@media only screen and (min-width: $small-screen) {
+		float: right;
+		margin: 0;
 	}
 }
 

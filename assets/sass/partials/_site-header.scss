@@ -9,7 +9,7 @@
 	.wrap {
 		margin-left: auto;
 		margin-right: auto;
-		padding: 20px;
+		padding: 0;
 
 		@media only screen and (min-width: $small-screen) {
 			max-width: 1024px;
@@ -23,19 +23,21 @@
 
 .title-area {
 	float: left;
-	padding-bottom: 25px;
-	padding-top: 25px;
-}
-
-.wp-custom-logo .title-area {
 	max-width: 200px;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	width: 100%;
+	padding: 10px;
+	width: auto;
 }
 
-.wp-custom-logo .title-area img {
+.title-area img {
 	width: auto;
+}
+
+.custom-logo-link {
+	display: none;
+}
+
+.mobile-logo {
+	height: 36px;
 }
 
 .site-title {
@@ -63,6 +65,23 @@
 	word-wrap: normal !important;
 }
 
+
+
+@media only screen and (min-width: $small-screen) {
+
+	.title-area {
+		width: 100%;
+		padding: 0;
+	}
+
+	.mobile-logo-link {
+		display: none;
+	}
+
+	.custom-logo-link {
+		display: block;
+	}
+}
 
 /* Hero
 --------------------------------------------- */
