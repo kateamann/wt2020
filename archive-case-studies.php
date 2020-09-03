@@ -41,11 +41,6 @@ add_action( 'genesis_after_header', 'wt2020_case_study_hero' );
 
 
 
-
-
-
-
-
 function wt2020_case_study_filters() {
 	do_action('show_beautiful_filters');
 }
