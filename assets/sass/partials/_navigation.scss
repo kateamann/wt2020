@@ -509,7 +509,9 @@
 	.feature {
 		display: block;
 		width: 100%;
+		max-width: 640px;
 		position: relative;
+		margin: 0 auto;
 	}
 
 	.feature img {
@@ -518,17 +520,16 @@
 	}
 
 	.feature-overlay {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		top: 0;
-		width: 50%;
-		height: calc(100% - 60px);
+		width: 100%;
 		padding: 30px;
-		margin: 30px 0;
-		background-color: $black-overlay;
+		margin: 0;
+		background-color: $black;
 		display: flex;
 		flex-direction: column;
+	}
+
+	h6 {
+		margin-bottom: 10px;
 	}
 
 	p {
@@ -543,7 +544,21 @@
 		width: fit-content;
 	}
 
-	@media only screen and (min-width: $small-screen) {
+	@media only screen and (min-width: 640px) {
+
+		.feature-overlay {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			top: 0;
+			width: 50%;
+			height: calc(100% - 60px);
+			margin: 30px 0;
+			background-color: $black-overlay;
+		}
+	}
+
+	@media only screen and (min-width: 1280px) {
 
 		.feature {
 			width: 50%;
@@ -557,7 +572,7 @@
 --------------------------------------------- */
 .pre-footer-section {
 	clear: both;
-    margin: 0 auto 120px;
+    margin: 120px auto 0;
     padding: 30px 30px 0;
     max-width: 1084px;
 
@@ -606,10 +621,11 @@
 	text-align: center;
 	color: $white;
 	background-color: $black;
-	margin-bottom: 120px;
+	margin-top: 120px;
 
 	.wrap {
-		max-width: 380px;
+		max-width: 420px;
+		padding: 20px;
 		margin: 60px auto;
 	}
 
@@ -631,7 +647,6 @@
 	}
 
 	.nf-field-label label {
-	    font-size: 12px;
 	    margin-bottom: 30px;
 	}
 

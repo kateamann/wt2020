@@ -73,7 +73,7 @@ function wt2020_add_featured_case_studies() {
 			            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
 			            </header>
 			            	<div class="entry-content" itemprop="text">
-				            	<p><?php echo esc_html( $excerpt ); ?></p>
+				            	<p><?php echo wp_trim_words( esc_html( $excerpt ), 15, '...' ); ?></p>
 				            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
 			        		</div>
 			        </div>
@@ -171,7 +171,7 @@ function wt2020_child_menu_shortcode() {
 	            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
 	            </header>
 	            	<div class="entry-content" itemprop="text">
-		            	<p><?php echo esc_html( $excerpt ); ?></p>
+		            	<p><?php echo wp_trim_words( esc_html( $excerpt ), 15, '...' ); ?></p>
 		            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
 	        		</div>
 	        </div>

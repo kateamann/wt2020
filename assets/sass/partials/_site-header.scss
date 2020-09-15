@@ -114,10 +114,13 @@
 		padding: 30px;
 
 		@media only screen and (min-width: $small-screen) {
-			max-width: 1144px;
+			max-width: 100%;
 			padding: 60px;
 			background-color: $black-overlay;
-			
+		}
+
+		@media only screen and (min-width: 1280px) {
+			max-width: 1144px;	
 		}
 	}
 
