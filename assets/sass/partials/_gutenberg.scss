@@ -381,28 +381,28 @@ hr.wp-block-separator {
 
 
 
-.wp-video-popup {
-  position: relative;
-  display: inline-block;
-  margin: 30px;
+// .wp-video-popup {
+//   position: relative;
+//   display: inline-block;
+//   margin: 30px;
 
-  &:before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    content: "\f522";
-    font-family: Dashicons;
-    font-size: 100px;
-    color: #fff;
-    opacity: .8;
-    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-  }
-  &:hover:before {
-    color: #eee;
-  }
-}
+//   &:before {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     -webkit-transform: translate(-50%, -50%);
+//     content: "\f522";
+//     font-family: Dashicons;
+//     font-size: 100px;
+//     color: #fff;
+//     opacity: .8;
+//     text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+//   }
+//   &:hover:before {
+//     color: #eee;
+//   }
+// }
 
 /* Media Queries
 ---------------------------------------------------------------------------- */
