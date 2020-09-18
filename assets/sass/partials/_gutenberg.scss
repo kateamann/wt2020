@@ -181,10 +181,10 @@
 }
 
 .wp-block-cover.cover-overlay {
-    padding: 60px;
+    padding: 20px;
 
     .overlay-group {
-    	padding: 60px;
+    	padding: 30px;
     }
 }
 
@@ -380,32 +380,26 @@ hr.wp-block-separator {
 }
 
 
+.wp-block-cover.video-cover {
+	min-height: 200px;
+	border: none;
+}
 
-// .wp-video-popup {
-//   position: relative;
-//   display: inline-block;
-//   margin: 30px;
+.wp-video-popup,
+.wp-video-popup figure {
+	margin-bottom: 0;
+}
 
-//   &:before {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     -webkit-transform: translate(-50%, -50%);
-//     content: "\f522";
-//     font-family: Dashicons;
-//     font-size: 100px;
-//     color: #fff;
-//     opacity: .8;
-//     text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-//   }
-//   &:hover:before {
-//     color: #eee;
-//   }
-// }
 
 /* Media Queries
 ---------------------------------------------------------------------------- */
+
+
+@media only screen and (min-width: 450px) {
+	.wp-block-cover.video-cover {
+		min-height: 300px;
+	}
+}
 
 @media only screen and (min-width: 510px) {
 
@@ -419,21 +413,30 @@ hr.wp-block-separator {
 
 }
 
-@media only screen and (min-width: 600px) { 
-}
-
 @media only screen and (min-width: 960px) { 
 
 	.full-width-content .entry-content .wp-block-media-text .wp-block-media-text__content {
 		padding: 60px;
 	}
+
+	.wp-block-cover.video-cover {
+		min-height: 400px;
+	}
+
+	.wp-block-cover.cover-overlay {
+	    padding: 60px;
+
+	    .overlay-group {
+	    	padding: 60px;
+	    }
+	}
 }
 
 @media only screen and (min-width: 1280px) {
 
-	.full-width-content .entry-content .wp-block-cover.alignwide {
-		width: unset;
-	}
+	// .full-width-content .entry-content .wp-block-cover.alignwide {
+	// 	width: unset;
+	// }
 
 	.full-width-content .entry-content .alignwide {
 		margin-left: -128px;
@@ -448,6 +451,14 @@ hr.wp-block-separator {
 
 	.full-width-content .entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
 		margin-left: 68px;
+	}
+
+	.wp-block-cover.video-cover {
+		min-height: 600px;
+		border-left: 128px $black solid;
+	    border-right: 128px $black solid;
+	    border-top: 30px $black solid;
+	    border-bottom: 30px $black solid;
 	}
 
 }
