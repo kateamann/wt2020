@@ -69,7 +69,7 @@ function wt2020_add_featured_case_studies() {
 			        <div class="featured-item entry">
 			        	<header class="entry-header">
 			            	<a href="<?php echo esc_url( $permalink ); ?>">
-			            	<?php echo get_the_post_thumbnail( $case_study->ID, 'medium_large' ); ?></a>
+			            	<?php echo get_the_post_thumbnail( $case_study->ID, 'wt2020_featured' ); ?></a>
 			            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
 			            </header>
 			            	<div class="entry-content" itemprop="text">
@@ -167,7 +167,7 @@ function wt2020_child_menu_shortcode() {
 	        <div class="featured-item entry">
 	        	<header class="entry-header">
 	            	<a href="<?php echo esc_url( $permalink ); ?>">
-	            	<?php echo get_the_post_thumbnail( $child->ID, 'medium_large' ); ?></a>
+	            	<?php echo get_the_post_thumbnail( $child->ID, 'wt2020_featured' ); ?></a>
 	            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
 	            </header>
 	            	<div class="entry-content" itemprop="text">

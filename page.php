@@ -25,7 +25,7 @@ function wt2020_sidebar_child_menu() {
 			foreach ($children as $child) { ?>
 				<div class="image-menu">
 					<a href="<?php echo get_permalink($child->ID); ?>">
-						<?php echo get_the_post_thumbnail( $child->ID, 'medium' ); ?>
+						<?php echo get_the_post_thumbnail( $child->ID, 'wt2020_featured' ); ?>
 						<div class="title-block">
 							<h3><?php echo $child->post_title; ?></h3>
 							<button class="arrow-right">Read More</button>

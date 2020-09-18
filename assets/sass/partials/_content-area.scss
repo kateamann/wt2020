@@ -5,6 +5,9 @@
 
 	.entry {
 		width: 100%;
+		max-width: 640px;
+	    margin-left: auto;
+	    margin-right: auto;
 
 		.entry-content {
 			padding-right: 30px;
@@ -23,6 +26,8 @@
 
 		.entry {
 			width: 49.5%;
+			margin-left: initial;
+	    	margin-right: initial;
 		}		
 	}
 }

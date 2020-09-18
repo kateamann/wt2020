@@ -42,7 +42,7 @@ function wt2020_child_theme_setup() {
 
 	// Image Sizes
 	add_image_size( 'wt2020_hero', 1280, 400, true );
-	add_image_size( 'wt2020_featured', 500, 300, true );
+	add_image_size( 'wt2020_featured', 640, 384, true );
 
 	// Gutenberg
 
