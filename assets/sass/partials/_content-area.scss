@@ -19,6 +19,7 @@
 	}
 }
 
+
 .entry-content .certifications {
 	.certification {
 		display: flex;
@@ -38,7 +39,7 @@
 
 @media only screen and (min-width: $small-screen) {
 	.archive .content,
-	.featured-menu {
+	.full-width-content .featured-menu {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
