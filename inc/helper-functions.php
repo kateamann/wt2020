@@ -36,6 +36,70 @@ if (function_exists('acf_add_options_page')) {
 
 
 /**
+ * Certifications shortcode
+ */
+function wt2020_certifications_shortcode() {
+	ob_start(); 
+	if( have_rows('certifications', 'options') ) {?>
+	<div class="certifications clearfix">
+		<?php while( have_rows('certifications', 'options') ): the_row(); 
+	        $logo = get_sub_field('logo');
+	        $link = get_sub_field('link');
+	        $name = get_sub_field('name');
+	        ?>
+	        <div class="certification">
+	            <?php echo wp_get_attachment_image( $logo, 'full' ); ?>
+	            <a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $name ); ?></a>
+	        </div>
+	    <?php endwhile; ?>
+	</div>
+	<?php $certifications = ob_get_clean();
+    return $certifications;
+    } 
+}
+add_shortcode( 'certifications', 'wt2020_certifications_shortcode' );
+
+
+
+/**
+ * Child menu shortcode
+ */
+function wt2020_child_menu_shortcode() {
+	global $post;
+
+	ob_start();
+	$children = get_pages(array('child_of' => $post->ID, 'sort_column' => 'menu_order'));
+	if ( $children ) { ?>
+		<div class="featured-menu clearfix">
+		    <?php foreach( $children as $child ): 
+
+	    	$permalink = get_permalink( $child->ID );
+	        $title = get_the_title( $child->ID );
+	        $excerpt = get_the_excerpt( $child->ID );
+	        ?>
+
+	        <div class="featured-item entry">
+	        	<header class="entry-header">
+	            	<a href="<?php echo esc_url( $permalink ); ?>">
+	            	<?php echo get_the_post_thumbnail( $child->ID, 'wt2020_featured' ); ?></a>
+	            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
+	            </header>
+	            	<div class="entry-content" itemprop="text">
+		            	<p><?php echo wp_trim_words( esc_html( $excerpt ), 15, '...' ); ?></p>
+		            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
+	        		</div>
+	        </div>
+		    <?php endforeach; ?>
+		</div>
+	<?php $child_menu = ob_get_clean();
+    return $child_menu;
+    } 
+}
+add_shortcode( 'child_menu', 'wt2020_child_menu_shortcode' );
+
+
+
+/**
  * Adds full-width callback CTA
  */
 function wt2020_add_callback_cta() { 
@@ -49,6 +113,8 @@ function wt2020_add_callback_cta() {
 		<?php
 	}
 }
+
+
 
 /**
  * Adds featured case studies
@@ -83,30 +149,6 @@ function wt2020_add_featured_case_studies() {
 	<?php }
 }
 
-
-/**
- * Certifications shortcode
- */
-function wt2020_certifications_shortcode() {
-	ob_start(); 
-	if( have_rows('certifications', 'options') ) {?>
-	<div class="certifications clearfix">
-		<?php while( have_rows('certifications', 'options') ): the_row(); 
-	        $logo = get_sub_field('logo');
-	        $link = get_sub_field('link');
-	        $name = get_sub_field('name');
-	        ?>
-	        <div class="certification">
-	            <?php echo wp_get_attachment_image( $logo, 'full' ); ?>
-	            <a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $name ); ?></a>
-	        </div>
-	    <?php endwhile; ?>
-	</div>
-	<?php $certifications = ob_get_clean();
-    return $certifications;
-    } 
-}
-add_shortcode( 'certifications', 'wt2020_certifications_shortcode' );
 
 
 /**
@@ -146,42 +188,6 @@ function wt2020_add_sidebar_cta() {
 	</div>
 	<?php
 }
-
-/**
- * Child menu shortcode
- */
-function wt2020_child_menu_shortcode() {
-	global $post;
-
-	ob_start();
-	$children = get_pages(array('child_of' => $post->ID, 'sort_column' => 'menu_order'));
-	if ( $children ) { ?>
-		<div class="featured-menu clearfix">
-		    <?php foreach( $children as $child ): 
-
-	    	$permalink = get_permalink( $child->ID );
-	        $title = get_the_title( $child->ID );
-	        $excerpt = get_the_excerpt( $child->ID );
-	        ?>
-
-	        <div class="featured-item entry">
-	        	<header class="entry-header">
-	            	<a href="<?php echo esc_url( $permalink ); ?>">
-	            	<?php echo get_the_post_thumbnail( $child->ID, 'wt2020_featured' ); ?></a>
-	            	<h2 class="entry-title" itemprop="headline"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></h2>
-	            </header>
-	            	<div class="entry-content" itemprop="text">
-		            	<p><?php echo wp_trim_words( esc_html( $excerpt ), 15, '...' ); ?></p>
-		            	<?php printf( '<a href="%s" class="more-link button arrow-right">%s</a>', get_permalink(), esc_html__( 'Read More' ) );?>
-	        		</div>
-	        </div>
-		    <?php endforeach; ?>
-		</div>
-	<?php $child_menu = ob_get_clean();
-    return $child_menu;
-    } 
-}
-add_shortcode( 'child_menu', 'wt2020_child_menu_shortcode' );
 
 
 

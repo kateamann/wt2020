@@ -10,7 +10,6 @@
 
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
-// Remove post title from main content
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 
 /**
@@ -51,7 +50,7 @@ function wt2020_home_featured_links() {
 	            <div class="feature-overlay">
 	            	<h6><?php the_sub_field('link_title'); ?></h6>
 	            	<p><?php the_sub_field('link_text'); ?></p>
-	            	<button class="arrow-right">Read More</button>
+	            	<a class="button arrow-right">Read More</a>
 	        	</div>
 		    	
 		    </div>
@@ -61,7 +60,6 @@ function wt2020_home_featured_links() {
 <?php } 
 }
 add_action( 'genesis_before_footer', 'wt2020_home_featured_links', 1 );
-
 
 add_action( 'genesis_before_footer', 'wt2020_add_featured_case_studies', 2 );
 

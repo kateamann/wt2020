@@ -96,17 +96,6 @@ body {
 	overflow-x: hidden;
 }
 
-// button,
-// input:focus,
-// input[type="button"],
-// input[type="reset"],
-// input[type="submit"],
-// textarea:focus,
-// .button,
-// .gallery img {
-// 	transition: all 0.2s ease-in-out;
-// }
-
 a {
 	color: $black;
 	font-weight: 600;
@@ -265,8 +254,6 @@ figure {
 	}
 }
 
-
-
 .gallery-columns-1 .gallery-item {
 	width: 100%;
 }
@@ -320,8 +307,6 @@ figure {
 	text-align: center;
 }
 
-
-
 /* Tables
 --------------------------------------------- */
 
@@ -359,32 +344,8 @@ th:first-child {
 }
 
 
-
-
-
 /* Common Classes
 ---------------------------------------------------------------------------- */
-
-/* Avatar
---------------------------------------------- */
-
-.avatar {
-	border-radius: 50%;
-	float: left;
-}
-
-.author-box .avatar,
-.alignleft .avatar {
-	margin-right: 20px;
-}
-
-.alignright .avatar {
-	margin-left: 20px;
-}
-
-.comment .avatar {
-	margin: 0 15px 20px 0;
-}
 
 /* Genesis
 --------------------------------------------- */
@@ -409,7 +370,6 @@ th:first-child {
 .author-box p:last-child {
 	margin-bottom: 0;
 }
-
 
 
 /* Titles

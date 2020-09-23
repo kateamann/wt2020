@@ -45,9 +45,6 @@ add_theme_support( 'genesis-accessibility', array(
 	'screen-reader-text',
 ) );
 
-// Remove Genesis Layout Settings
-// remove_theme_support( 'genesis-inpost-layouts' );
-
 // Remove Genesis Scripts Settings
 add_action( 'admin_menu' , 'remove_genesis_page_post_scripts_box' );
 function remove_genesis_page_post_scripts_box() {
@@ -59,11 +56,6 @@ function remove_genesis_page_post_scripts_box() {
 
 //* Remove Genesis in-post SEO Settings
 remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
-
-
-
-// Remove admin bar styling
-// add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 
 // Remove Edit link
 add_filter( 'genesis_edit_post_link', '__return_false' );
@@ -83,7 +75,6 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 unregister_sidebar( 'header-right' );
 unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
-
 
 // Add New Sidebars
 genesis_register_widget_area( array( 'id' => 'sidebar-end', 'name' => 'After Sidebar Area' ) );
@@ -105,8 +96,6 @@ function wt2020_remove_genesis_templates( $page_templates ) {
 	return $page_templates;
 }
 add_filter( 'theme_page_templates', 'wt2020_remove_genesis_templates' );
-
-
 
 
 /**
@@ -133,7 +122,6 @@ function wt2020_hero_image() {
 	    if ( '' === $alt ) {
 	        $alt = the_title_attribute( 'echo=0' );
 	    }
-
 	   
 	    // display the featured image
 	    echo '<div class="hero">';
@@ -169,7 +157,6 @@ function wt2020_post_layout() {
 	}
 }
 add_action( 'genesis_header', 'wt2020_post_layout' );
-
 
 
 /**

@@ -9,7 +9,6 @@
 **/
 
 
-
 add_action( 'genesis_before_sidebar_widget_area', 'wt2020_add_sidebar_cta' );
 
 function wt2020_sidebar_child_menu() {
@@ -42,14 +41,10 @@ function wt2020_sidebar_child_menu() {
 }
 add_action( 'genesis_before_sidebar_widget_area', 'wt2020_sidebar_child_menu' );
 
-
 add_action( 'genesis_before_footer', 'wt2020_add_callback_cta', 2 );
-
 
 add_action( 'genesis_before_footer', 'wt2020_add_featured_case_studies', 2 );
 
 add_action( 'genesis_before_footer', 'wt2020_add_certifications_block', 2 );
-
-
 
 genesis();

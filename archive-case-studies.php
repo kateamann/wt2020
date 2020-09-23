@@ -10,7 +10,6 @@
 
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
-
 /**
  * Display featured image (if present) before entry on single Posts
  */
@@ -39,12 +38,9 @@ function wt2020_case_study_hero() {
 add_action( 'genesis_after_header', 'wt2020_case_study_hero' );
 
 
-
-
 function wt2020_case_study_filters() {
 	do_action('show_beautiful_filters');
 }
 add_action( 'genesis_before_content', 'wt2020_case_study_filters' );
-
 
 genesis();

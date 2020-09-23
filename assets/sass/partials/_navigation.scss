@@ -488,10 +488,11 @@
 		font-size: 18px;
 		color: $white;
 		margin-bottom: 0;
-		max-width: 140px;
 	}
 
 	button {
+		min-width: 142px;
+		margin-left: 20px;
 	}
 }
 
@@ -539,7 +540,7 @@
 		font-weight: 400;
 	}
 
-	button {
+	a.button {
 		margin-top: auto;
 		width: fit-content;
 	}
@@ -573,7 +574,7 @@
 .pre-footer-section {
 	clear: both;
     margin: 120px auto 0;
-    padding: 30px 30px 0;
+    padding: 30px 20px 0;
     max-width: 1084px;
 
 	h6 {

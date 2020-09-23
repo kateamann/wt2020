@@ -2,7 +2,6 @@
 ---------------------------------------------------------------------------- */
 .archive .content,
 .featured-menu {
-
 	.entry {
 		width: 100%;
 		max-width: 640px;
@@ -17,18 +16,6 @@
 	img {
 		width: 100%;
 		margin-bottom: 15px;
-	}
-
-	@media only screen and (min-width: $small-screen) {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-
-		.entry {
-			width: 49.5%;
-			margin-left: initial;
-	    	margin-right: initial;
-		}		
 	}
 }
 
@@ -47,14 +34,26 @@
 			font-weight: 400;
 		}
 	}
+}
 
-	@media only screen and (min-width: $small-screen) {
-		.certification {
+@media only screen and (min-width: $small-screen) {
+	.archive .content,
+	.featured-menu {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.entry {
+			width: 49.5%;
+			margin-left: initial;
+	    	margin-right: initial;
+		}		
+	}
+	.entry-content .certifications .certification {
 			img {
 				margin-right: 60px;
 			}
 		}
-	}
 }
 
 
@@ -161,59 +160,4 @@ p.entry-meta {
 		background-color: $black;
 		color: $white;
 	}
-}
-
-
-
-/* Entry Comments
---------------------------------------------- */
-
-.comment-respond,
-.entry-comments,
-.entry-pings {
-	margin-bottom: 20px;
-}
-
-.comment-list li {
-	padding: 40px 0 0 30px;
-}
-
-.comment-list .depth-1 {
-	padding-left: 0;
-}
-
-.comment-header {
-	margin-bottom: 20px;
-}
-
-.comment-content {
-	clear: both;
-}
-
-.comment-content ul > li {
-	list-style-type: disc;
-}
-
-.comment-respond input[type="email"],
-.comment-respond input[type="text"],
-.comment-respond input[type="url"] {
-	width: 50%;
-}
-
-.comment-respond label {
-	display: block;
-	margin-right: 12px;
-}
-
-.comment-header p {
-	margin-bottom: 0;
-}
-
-.entry-pings .reply {
-	display: none;
-}
-
-.comment-form-cookies-consent label {
-	display: inline;
-	padding-left: 10px;
 }
