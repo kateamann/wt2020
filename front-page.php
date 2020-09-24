@@ -50,7 +50,7 @@ function wt2020_home_featured_links() {
 	            <div class="feature-overlay">
 	            	<h6><?php the_sub_field('link_title'); ?></h6>
 	            	<p><?php the_sub_field('link_text'); ?></p>
-	            	<a class="button arrow-right">Read More</a>
+	            	<a href="<?php the_sub_field('link'); ?>" class="button arrow-right">Read More</a>
 	        	</div>
 		    	
 		    </div>
