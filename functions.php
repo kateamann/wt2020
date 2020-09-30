@@ -152,7 +152,6 @@ function wt2020_global_enqueues() {
 add_action( 'wp_enqueue_scripts', 'wt2020_global_enqueues' );
 
 
-
 // Enable exceprts on pages
 add_post_type_support( 'page', 'excerpt' );
 
@@ -168,3 +167,13 @@ function wt2020_localization_setup() {
 
 }
 add_action( 'after_setup_theme', 'wt2020_localization_setup' );
+
+
+//* Preload fonts
+function wt2020_font_preloads() { ?>
+
+	<link rel="preload" href="assets/fonts/DIN2014-Regular/font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="assets/fonts/DIN2014-ExtraBold/font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<?php
+}
+add_action('wp_head', 'wt2020_font_preloads');
