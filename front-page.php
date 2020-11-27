@@ -48,7 +48,7 @@ function wt2020_home_featured_links() {
 		        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
 
 	            <div class="feature-overlay">
-	            	<h6><?php the_sub_field('link_title'); ?></h6>
+	            	<h6 class="feature-lg"><?php the_sub_field('link_title'); ?></h6>
 	            	<p><?php the_sub_field('link_text'); ?></p>
 	            	<a href="<?php the_sub_field('link'); ?>" class="button arrow-right">Read More</a>
 	        	</div>

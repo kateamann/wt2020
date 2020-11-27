@@ -208,6 +208,10 @@ h6 {
 	color: $yellow;
 	font-weight: 600;
 	text-transform: uppercase;
+
+	&.feature-lg {
+		font-size: 21px;
+	}
 }
 
 .black {

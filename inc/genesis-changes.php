@@ -19,7 +19,7 @@ add_theme_support( 'html5', array(
 
 add_theme_support( 'genesis-responsive-viewport' );
 
-add_theme_support( 'genesis-footer-widgets', 4 );
+add_theme_support( 'genesis-footer-widgets', 3 );
 
 add_theme_support( 'genesis-structural-wraps', array( 
 	'header', 
