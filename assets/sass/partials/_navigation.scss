@@ -505,6 +505,11 @@
 
 	a {
 		display: block;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 	.feature {
