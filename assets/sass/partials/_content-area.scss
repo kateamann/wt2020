@@ -39,7 +39,8 @@
 
 @media only screen and (min-width: $small-screen) {
 	.archive .content,
-	.full-width-content .featured-menu {
+	.full-width-content .featured-menu,
+	.pre-footer-section .featured-menu {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
